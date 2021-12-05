@@ -42,7 +42,6 @@ foreach (var line in diagonalLines)
     }
 }
 
-
 var overlaps = points
     .GroupBy(p => $"{p.x}-{p.y}")
     .Where(grp => grp.Count() >= 2);
