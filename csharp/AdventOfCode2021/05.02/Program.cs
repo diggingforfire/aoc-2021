@@ -10,26 +10,9 @@
         y2 = int.Parse(xys.b[1])
     });
 
-var horizontalLines = lines
-    .Where(xys => xys.x1 == xys.x2 || xys.y1 == xys.y2);
-
-var diagonalLines = lines
-    .Where(xys => xys.x1 != xys.x2 && xys.y1 != xys.y2);
-
 var points = new List<(int x, int y)>();
 
-foreach (var line in horizontalLines)
-{
-    for (int x1 = Math.Min(line.x1, line.x2), x2 = Math.Max(line.x1, line.x2); x1 <= x2; x1++)
-    {
-        for (int y1 = Math.Min(line.y1, line.y2), y2 = Math.Max(line.y1, line.y2); y1 <= y2; y1++)
-        {
-            points.Add((x1, y1));
-        }
-    }
-}
-
-foreach (var line in diagonalLines)
+foreach (var line in lines)
 {
     for (
         int x1 = line.x1, x2 = line.x2, y1 = line.y1, y2 = line.y2; 
