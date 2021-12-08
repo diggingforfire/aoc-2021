@@ -4,7 +4,7 @@
     .Select(int.Parse);
 
 long total = 0;
-int totalDaysRemaining = 80;
+int totalDaysRemaining = 256;
 var cache = new Dictionary<int, long>();
 
 foreach (var fish in fishies)
@@ -29,7 +29,7 @@ long Get(int fish, int daysRemaining)
 
     var childFishies = (int)Math.Floor((double)daysRemaining / 7) + 1;
     total += childFishies;
-    
+
     daysRemaining -= 2;
 
     for (int i = 0; i < childFishies; i++)
