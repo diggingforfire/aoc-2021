@@ -51,7 +51,7 @@ foreach (var pattern in result)
     {
         if (ContentsEquals(outputValue, segmentZero))       output += "0";
         else if (ContentsEquals(outputValue, segmentOne))   output += "1";
-        else if (ContentsEquals(outputValue, segmentTwo))   output += "2";
+        else if (ContentsEquals(outputValue, segmentTwo))   output += "2";      
         else if (ContentsEquals(outputValue, segmentThree)) output += "3";
         else if (ContentsEquals(outputValue, segmentFour))  output += "4";
         else if (ContentsEquals(outputValue, segmentFive))  output += "5";
@@ -61,7 +61,7 @@ foreach (var pattern in result)
         else if (ContentsEquals(outputValue, segmentNine))  output += "9";
     }
 
-    total += int.Parse(output);
+    total += int.Parse(output);         
 }
 
 bool ContentsEquals(string one, string two)

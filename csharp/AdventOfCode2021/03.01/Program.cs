@@ -15,7 +15,8 @@ var gammas = lines
     { 
         First = gammas.Gamma[0].Key, 
         Second = gammas.Gamma[1].Key 
-    });
+    })
+    .ToArray();
 
 var gamma = Convert.ToInt32(new string(gammas.Select(gamma => gamma.First).ToArray()), 2);
 var epsilon = Convert.ToInt32(new string(gammas.Select(gamma => gamma.Second).ToArray()), 2);

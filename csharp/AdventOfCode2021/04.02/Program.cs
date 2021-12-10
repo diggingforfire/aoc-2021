@@ -17,7 +17,7 @@ var boards = lines
     }
     ).ToArray();
 
-List<Board> winners = new List<Board>();
+var winners = new List<Board>();
 
 foreach (var num in numbers)
 {

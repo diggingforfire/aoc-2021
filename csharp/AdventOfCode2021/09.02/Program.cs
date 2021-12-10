@@ -1,7 +1,7 @@
 ﻿var heightMap = File.ReadAllLines("input.txt")
     .Select(line => line.Select(c => int.Parse(c.ToString())).ToArray()).ToArray();
 
-(int x, int y)[] adjacents = new[] { (0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1) };
+(int x, int y)[] adjacents = { (0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1) };
 (int x, int y)[] adjacentsHoriVerti = 
     new[] { (0, -1),  (1, 0), (0, 1),  (-1, 0),};
 

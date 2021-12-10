@@ -8,7 +8,7 @@ foreach (var line in incompleteLines)
 {
     var stack = new Stack<char>();
     foreach (var c in line) stack.Push(c);
-      
+
     var remainingStack = new Stack<char>();
     var toAdd = new List<char>();
     while (stack.Count > 0)
