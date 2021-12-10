@@ -3,7 +3,6 @@
     .Where(LineIsComplete)
     .ToArray();
 
-
 var completedLines = new List<string>();
 foreach (var line in incompleteLines)
 {
@@ -56,9 +55,9 @@ Console.WriteLine(middle);
 bool LineIsComplete(string line)
 {
     var stack = new Stack<char>();
+
     foreach (var c in line)
     {
-        char popped = ' ';
         switch (c)
         {
             case '(':
@@ -68,20 +67,16 @@ bool LineIsComplete(string line)
                 stack.Push(c);
                 break;
             case ')':
-                popped = stack.Pop();
-                if (popped != '(') return false;
+                if (stack.Pop() != '(') return false;
                 break;
             case ']':
-                popped = stack.Pop();
-                if (popped != '[') return false;
+                if (stack.Pop() != '[') return false;
                 break;
             case '}':
-                popped = stack.Pop();
-                if (popped != '{') return false;
+                if (stack.Pop() != '{') return false;
                 break;
             case '>':
-                popped = stack.Pop();
-                if (popped != '<') return false;
+                if (stack.Pop() != '<') return false;
                 break;
         }
     }
