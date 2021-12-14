@@ -3,16 +3,17 @@
 
 (int x, int y)[] adjacents = { (0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1) };
 
-int stepCount = 100;
-int flashCount = 0;
-
-for (int i = 0; i < stepCount; i++)
+for (int i = 0; ; i++)
 {
     IncrementEnergyLevels();
     Flash();
-}
 
-Console.WriteLine(flashCount);
+    if (grid.SelectMany(energy => energy).GroupBy(e => e).Count() == 1)
+    {
+        Console.WriteLine(i + 1);
+        break;
+    }
+}
 
 void Flash(List<(int x, int y)>? alreadyFlashed = null)
 {
@@ -22,12 +23,13 @@ void Flash(List<(int x, int y)>? alreadyFlashed = null)
     {
         for (int x = 0; x < grid[0].Length; x++)
         {
-            if (grid[y][x] > 9 && !alreadyFlashed.Any(a => a.x == x && a.y == y))
+            var x1 = x;
+            var y1 = y;
+            if (grid[y][x] > 9 && !alreadyFlashed.Any(a => a.x == x1 && a.y == y1))
             {
-                flashCount++;
                 alreadyFlashed.Add((x, y));
 
-                var neighbours = adjacents.Select(adjacent => 
+                var neighbours = adjacents.Select(adjacent =>
                 {
                     int newY = y + adjacent.y;
                     int newX = x + adjacent.x;
