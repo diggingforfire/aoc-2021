@@ -12,4 +12,3 @@ with open("input.txt", "r", encoding="utf-8-sig") as f:
                 depth += aim * command[1]
 
     print(horizontal_position * depth)
-
